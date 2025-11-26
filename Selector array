@@ -1,0 +1,30 @@
+#include <stdio.h> 
+
+void WriteArray(int* array, const size_t SIZE) {
+    for (int i = 0; i < SIZE; i++){
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
+void SelcSor(int* array, const size_t SIZE) { 
+    int l = 0; 
+    for (int i = 0; i < SIZE - 1; i++) { 
+        for (int j = i + 1; j < SIZE; j++) { 
+            int min_indx = i; 
+            if (array[j] < array[min_indx]) { 
+                min_indx = j; 
+            } 
+            l = array[min_indx]; 
+            array[min_indx] = array[i]; 
+            array[i] = l; 
+        }
+    }
+} 
+
+int main() { 
+    const size_t SIZE = 10; 
+    int array[SIZE] = {3, 2, 5, 4, 0, 1, 9, 7, 6, 8}; 
+    SelcSor(array, SIZE);
+    writeArray(array, SIZE); 
+} 
